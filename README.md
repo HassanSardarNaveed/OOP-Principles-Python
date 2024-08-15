@@ -23,7 +23,7 @@ How to Run the Program
 Clone the Repository:
 
 
-git clone https://github.com/YourUsername/OOP-Principles-Python.git
+git clone https://github.com/HassanSardarNaveed/OOP-Principles-Python.git
 cd OOP-Principles-Python
 Run the Program:
 Ensure you have Python installed on your machine. You can run the program by executing the Python script:
