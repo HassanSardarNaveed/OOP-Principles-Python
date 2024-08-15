@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Principles in Python</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Understanding OOP Principles in Python</h1>
+    
+    <div class="section">
+        <button class="btn" onclick="toggleContent('encapsulation')">Encapsulation</button>
+        <div id="encapsulation" class="content">
+            <h2>Encapsulation</h2>
+            <p>Encapsulation is the concept of wrapping data (attributes) and methods (functions) into a single unit, known as a class. It restricts direct access to some of the object's components, which can help prevent accidental interference and misuse of the data.</p>
+            <pre><code>class Vehicle:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.__year = year
+
+    def get_year(self):
+        return self.__year
+
+    def set_year(self, year):
+        if year > 1885:
+            self.__year = year</code></pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <button class="btn" onclick="toggleContent('inheritance')">Inheritance</button>
+        <div id="inheritance" class="content">
+            <h2>Inheritance</h2>
+            <p>Inheritance is a mechanism where a new class (child or subclass) is derived from an existing class (parent or superclass). This allows the child class to inherit attributes and methods from the parent class, promoting code reuse and a hierarchical class structure.</p>
+            <pre><code>class Car(Vehicle):
+    def __init__(self, brand, model, year, doors):
+        super().__init__(brand, model, year)
+        self.doors = doors
+
+    def car_info(self):
+        return f"{self.brand} {self.model}, Year: {self.get_year()}, Doors: {self.doors}"</code></pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <button class="btn" onclick="toggleContent('polymorphism')">Polymorphism</button>
+        <div id="polymorphism" class="content">
+            <h2>Polymorphism</h2>
+            <p>Polymorphism allows objects of different classes to be treated as objects of a common superclass. It refers to the ability of different classes to provide a unique implementation of methods that are called through the same name.</p>
+            <pre><code>class ElectricCar(Car):
+    def __init__(self, brand, model, year, doors, battery_size):
+        super().__init__(brand, model, year, doors)
+        self.battery_size = battery_size
+
+    def car_info(self):
+        return f"{self.brand} {self.model}, Year: {self.get_year()}, Battery: {self.battery_size} kWh"</code></pre>
+        </div>
+    </div>
+
+    <div class="section">
+        <button class="btn" onclick="toggleContent('abstraction')">Abstraction</button>
+        <div id="abstraction" class="content">
+            <h2>Abstraction</h2>
+            <p>Abstraction is the concept of hiding the complex implementation details and showing only the essential features of an object. It allows the user to interact with the object without needing to understand its internal workings.</p>
+            <pre><code>from abc import ABC, abstractmethod
+
+class Payment(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+class CreditCardPayment(Payment):
+    def pay(self, amount):
+        print(f"Paid {amount} using Credit Card")
+
+class PayPalPayment(Payment):
+    def pay(self, amount):
+        print(f"Paid {amount} using PayPal"</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
